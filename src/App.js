@@ -65,12 +65,12 @@ function App() {
 
     return (
         <div className="App">
-            <h1 className='header'>Image Identification</h1>
+            <h1 className='header'>Seminario de Actualización</h1>
             <div className='inputHolder'>
                 <input type='file' accept='image/*' capture='camera' className='uploadInput' onChange={uploadImage} ref={fileInputRef} />
-                <button className='uploadImage' onClick={triggerUpload}>Upload Image</button>
-                <span className='or'>OR</span>
-                <input type="text" placeholder='Paster image URL' ref={textInputRef} onChange={handleOnChange} />
+                <button className='uploadImage' onClick={triggerUpload}>Cargar imagen</button>
+                <span className='or'>o</span>
+                <input type="text" placeholder='Ingresa URL de imagen' ref={textInputRef} onChange={handleOnChange} />
             </div>
             <div className="mainWrapper">
                 <div className="mainContent">
@@ -82,21 +82,21 @@ function App() {
                             return (
                                 <div className='result' key={result.className}>
                                     <span className='name'>{result.className}</span>
-                                    <span className='confidence'>Confidence level: {(result.probability * 100).toFixed(2)}% {index === 0 && <span className='bestGuess'>Best Guess</span>}</span>
+                                    <span className='confidence'>Resultado confiable: {(result.probability * 100).toFixed(2)}% {index === 0 && <span className='bestGuess'>Mejor resultado</span>}</span>
                                 </div>
                             )
                         })}
                     </div>}
                 </div>
-                {imageURL && <button className='button' onClick={identify}>Identify Image</button>}
+                {imageURL && <button className='button' onClick={identify}>Identificar imagen</button>}
             </div>
             {history.length > 0 && <div className="recentPredictions">
-                <h2>Recent Images</h2>
+                <h2>Imágenes recientes</h2>
                 <div className="recentImages">
                     {history.map((image, index) => {
                         return (
                             <div className="recentPrediction" key={`${image}${index}`}>
-                                <img src={image} alt='Recent Prediction' onClick={() => setImageURL(image)} />
+                                <img src={image} alt='Predicción reciente' onClick={() => setImageURL(image)} />
                             </div>
                         )
                     })}
